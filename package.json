@@ -1,0 +1,15 @@
+{
+  "name": "41-consola-app",
+  "version": "0.1.0",
+  "description": "Aplicación de consola Curso Node JS CTC",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ffespechen",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.1.1"
+  }
+}
