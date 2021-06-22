@@ -8,6 +8,17 @@ const main = async () => {
   do {
     opt = await inquirerMenu();
     await pausa();
+
+    switch (opt)) {
+        case '1':
+            // Todo 
+            break;
+            case '2':
+            console.log(tareas._listado) 
+            break;
+        default:
+            break;
+    }
   } while (opt !== "0");
 };
 
