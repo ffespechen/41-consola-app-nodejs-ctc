@@ -79,8 +79,69 @@ const leerInput = async (message) => {
   return desc;
 };
 
+const listadoTareasBorrar = async (tareas = []) => {
+  const choices = tareas.map((tarea) => {
+    return { value: tarea.id, name: tarea.desc };
+  });
+
+  choices.unshift({
+    value: '0',
+    name: '0. Cancelar',
+  });
+
+  const preguntas = [
+    {
+      type: 'list',
+      name: 'id',
+      message: 'Seleccione opción a BORRAR',
+      choices,
+    },
+  ];
+
+  const { id } = await inquirer.prompt(preguntas);
+  return id;
+};
+
+const confirmar = async (message) => {
+  const question = [
+    {
+      type: 'confirm',
+      name: 'ok',
+      message,
+    },
+  ];
+
+  const { ok } = await inquirer.prompt(question);
+  return ok;
+};
+
+const listadoTareasCompletar = async (tareas = []) => {
+  const choices = tareas.map((tarea) => {
+    return {
+      value: tarea.id,
+      name: tarea.desc,
+      checked: tarea.completadoEn ? true : false,
+    };
+  });
+
+  const preguntas = [
+    {
+      type: 'checkbox',
+      name: 'ids',
+      message: 'Modificar el estado de las tareas',
+      choices,
+    },
+  ];
+
+  const { ids } = await inquirer.prompt(preguntas);
+  return ids;
+};
+
 module.exports = {
   inquirerMenu,
   pausa,
   leerInput,
+  listadoTareasBorrar,
+  confirmar,
+  listadoTareasCompletar,
 };
