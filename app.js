@@ -9,7 +9,7 @@ const main = async () => {
   const tareasDB = leerDB();
 
   if (tareasDB) {
-    // Establecer las tareas
+    tareas.cargarTareasFromArray(tareasDB);
   }
 
   do {
@@ -21,7 +21,7 @@ const main = async () => {
         tareas.crearTarea(descripcion);
         break;
       case '2':
-        console.log('Tareas: ', tareas.listadoArray);
+        tareas.listadoCompleto();
 
         break;
       default:
@@ -29,7 +29,7 @@ const main = async () => {
         break;
     }
 
-    // guardarDB(tareas.listadoArray);
+    guardarDB(tareas.listadoArray);
     await pausa();
   } while (opt !== '0');
 };
