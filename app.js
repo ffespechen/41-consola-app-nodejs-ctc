@@ -22,10 +22,12 @@ const main = async () => {
         break;
       case '2':
         tareas.listadoCompleto();
-
         break;
-      default:
-        console.log(opt);
+      case '3':
+        tareas.listarPendientesCompletadas();
+        break;
+      case '4':
+        tareas.listarPendientesCompletadas(false);
         break;
     }
 
